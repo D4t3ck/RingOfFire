@@ -1,0 +1,23 @@
+<div class="field">
+
+  <div class="card_stack">
+    @for ( item of [0, 1, 2, 3]; track i; let i = $index) {
+    <img [ngStyle]="{ 'right.px': i * 4 }" src="/assets/cards/card_cover.png" />
+    }
+    <img
+      (click)="takeCard()"
+      [class.pick_card]="pickCardAnimation"
+      class="top_card"
+      style="right: 25px"
+      src="/assets/cards/card_cover.png"
+    />
+    
+    @if(pickCardAnimation) {
+    <img
+      (click)="takeCard()"
+      class="pick_card"
+      style="right: 25px"
+      src="/assets/cards/spade_1.png"
+    />}
+  </div>
+</div>
