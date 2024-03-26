@@ -28,15 +28,14 @@
   }
 }
 
-/* .played_card {
-  right: 25px;
-  transform: scale(1.1) translateX(200px) translateY(-200px) rotate(10deg);
-} */
+.played_card {
+  transform: scale(1.1) translateX(200px) translateY(-200px) rotate(-15deg);
+}
 
 .pick_card {
   transition: all 125ms ease-in-out;
   animation: pick_card_animation 1s ease-in-out;
-  transform: scale(1.1) translateX(200px) translateY(-200px) rotate(10deg);
+  transform: scale(1.1) translateX(200px) translateY(-200px) rotate(-15deg);
 }
 
 @keyframes pick_card_animation {
@@ -50,6 +49,11 @@
     transform: scale(1.5);
   }
   100% {
-    transform: scale(1.1) translateX(200px) translateY(-200px) rotate(10deg);
+    transform: scale(1.1) translateX(200px) translateY(-200px) rotate(-15deg);
   }
+}
+
+.player_position {
+  position: absolute;
+  right: 0;
 }

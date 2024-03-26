@@ -1,4 +1,7 @@
+<app-player style="top:130px" class="player_position"></app-player>
+
 <div class="field">
+  <!-- Card stack -->
   <div class="card_stack">
     @for ( item of [0, 1, 2, 3]; track i; let i = $index) {
     <img [ngStyle]="{ 'right.px': i * 5 }" src="/assets/cards/card_cover.png" />
@@ -7,15 +10,24 @@
       (click)="takeCard()"
       class="top_card"
       style="right: 25px"
-      src="/assets/cards/card_cover.png"
+      src="assets/cards/card_cover.png"
     />
 
-    @if(pickCardAnimation) {
+    <!-- stack for played cards -->
+    @for (cardsPlayed of game?.playedCards; track $index) {
+    <img
+      class="played_card"
+      style="right: 25px"
+      src="../../assets/cards/{{ cardsPlayed }}.png"
+    />
+
+    <!--  current card (animation) -->
+    } @if(pickCardAnimation) {
     <img
       (click)="takeCard()"
       class="pick_card"
       style="right: 25px"
-      src="/assets/cards/{{ currentCard }}.png"
+      src="assets/cards/{{ currentCard }}.png"
     />}
   </div>
 </div>
