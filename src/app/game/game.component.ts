@@ -2,11 +2,24 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Game } from '../models/game';
 import { PlayerComponent } from '../player/player.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [CommonModule, PlayerComponent],
+  imports: [
+    CommonModule,
+    PlayerComponent,
+    MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatDividerModule,
+  ],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss',
 })
@@ -15,7 +28,7 @@ export class GameComponent implements OnInit {
   currentCard: string | undefined;
   game: Game | undefined;
 
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.newGame();
@@ -40,4 +53,16 @@ export class GameComponent implements OnInit {
       }, 1000);
     }
   }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogAddPlayerComponent);
+
+    dialogRef.afterClosed().subscribe((name: string) => {
+      if (name && name.length > 0) {
+        this.game?.players.push(name);
+      }
+    });
+  }
+
+  
 }
