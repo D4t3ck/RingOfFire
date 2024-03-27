@@ -4,7 +4,7 @@
   width: 300px;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
-  background-color: orange;
+  background-color: rgba(80, 80, 80, 0.5);
 
   span {
     margin-left: 16px;
@@ -17,4 +17,8 @@
     object-fit: cover;
     border-radius: 100%;
   }
+}
+
+.player_active {
+  background-color: rgba(255, 153, 1, 0.8);
 }
