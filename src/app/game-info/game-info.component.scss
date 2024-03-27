@@ -1,0 +1,10 @@
+.info_card {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: whitesmoke;
+    
+    :nth-child(1) {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+    }
+}

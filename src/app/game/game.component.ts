@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
+import { GameInfoComponent } from '../game-info/game-info.component';
 
 @Component({
   selector: 'app-game',
@@ -19,6 +20,7 @@ import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player
     MatButtonModule,
     MatDialogModule,
     MatDividerModule,
+    GameInfoComponent,
   ],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss',
@@ -36,7 +38,7 @@ export class GameComponent implements OnInit {
 
   newGame() {
     this.game = new Game();
-    console.log(this.game);
+    // console.log(this.game);
   }
 
   takeCard() {
@@ -44,8 +46,8 @@ export class GameComponent implements OnInit {
       this.currentCard = this.game?.stack.pop();
       this.pickCardAnimation = true;
 
-      console.log('New card: ' + this.currentCard);
-      console.log('Game is', this.game);
+      // console.log('New card: ' + this.currentCard);
+      // console.log('Game is', this.game);
 
       setTimeout(() => {
         if (this.currentCard) this.game?.playedCards.push(this.currentCard);
@@ -63,6 +65,4 @@ export class GameComponent implements OnInit {
       }
     });
   }
-
-  
 }
